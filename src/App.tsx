@@ -7,14 +7,8 @@ function App() {
 
   const isError = !message && !isLoading;
 
-  const serverUrl = import.meta.env.VITE_API_URL;
-
-  if (!serverUrl) {
-    throw new Error("VITE_API_URL is not defined");
-  }
-
   useEffect(() => {
-    fetch(serverUrl)
+    fetch("http://localhost:8080/")
       .then((res) => res.json())
       .then((data) => {
         setMessage(data.greeting);
